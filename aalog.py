@@ -7,7 +7,7 @@ import click
 @click.option('--string', default='world!')
 def cli(string):
     """
-    This function is a simpl e test function, that I'm currently mucking
+    This function is a simple test function, that I'm currently mucking
     about with.  Big taste
     """
     click.echo('Hello %s' % string)
