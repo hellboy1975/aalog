@@ -7,14 +7,16 @@ name = "pypi"
 
 [packages]
 
-click = "*"
 peewee = "*"
 sphinx = "*"
 flask = "*"
+click = "*"
 
 
 [dev-packages]
 
+pylint = "*"
+setuptools = "*"
 
 
 [requires]
