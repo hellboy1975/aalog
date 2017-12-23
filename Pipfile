@@ -11,6 +11,7 @@ peewee = "*"
 sphinx = "*"
 flask = "*"
 click = "*"
+pyyaml = "*"
 
 
 [dev-packages]
