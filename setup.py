@@ -10,6 +10,7 @@ setup(
     name='aalog',
     version='0.1',
     py_modules=['aalog'],
+    packages=['aalog'],
     include_package_data=True,
     description='Adventurous Activities Log',
     long_description=readme,
@@ -19,6 +20,6 @@ setup(
     license=license,
     entry_points='''
         [console_scripts]
-        aalog=aalog:cli
+        aalog=aalog.cli:cli
     ''',
 )
