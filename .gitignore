@@ -113,3 +113,5 @@ Scripts/
 # Other stuff I don't feel like committing
 pip-selfcheck.json
 pyvenv.cfg
+
+README-DEV.md
