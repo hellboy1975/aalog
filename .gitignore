@@ -115,3 +115,4 @@ pip-selfcheck.json
 pyvenv.cfg
 
 README-DEV.md
+aalog.db
