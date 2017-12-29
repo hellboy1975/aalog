@@ -9,9 +9,10 @@ with open('LICENSE') as f:
 setup(
     name='aalog',
     version='0.1',
-    py_modules=['aalog'],
-    packages=['aalog'],
-    include_package_data=True,
+    # py_modules=['aalog'],
+    # packages=['aalog'],
+    packages=find_packages(),
+    # include_package_data=True,
     description='Adventurous Activities Log',
     long_description=readme,
     author='Matt Smith',

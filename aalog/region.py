@@ -5,7 +5,8 @@ Examples:
 * Canyoning:  Blue Mountains
 * Climbing: Morialta, Arapiles
 """
-from .. import db as dbconf
+# from .. import db as dbconf
+from . import dbconf as dbconf
 from peewee import *
 
 DB = SqliteDatabase(dbconf.DATABASE)
