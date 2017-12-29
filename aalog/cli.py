@@ -8,14 +8,17 @@ import click
 from . import dbconf
 from . import create_tables
 
-@click.group()
+CONTEXT_SETTINGS = dict(help_option_names=['-h', '--help'])
+
+@click.group(context_settings=CONTEXT_SETTINGS)
 @click.option('--debug/--no-debug', default=False)
 def cli(debug):
     """
     The aaLog CLI interface gives you a range of commands that are
     used in interact with the aalog Database.
     """
-    click.echo('Debug mode is %s' % ('on' if debug else 'off'))
+    # click.echo('Debug mode is %s' % ('on' if debug else 'off'))
+    pass
 
 @cli.command()
 def init():
