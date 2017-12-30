@@ -4,6 +4,12 @@ Examples:
 * Caving: Upper South East, Bungonia or Mole Creek.
 * Canyoning:  Blue Mountains
 * Climbing: Morialta, Arapiles
+
+Dev Note:
+Note super happy with the structure of these files.  I'd like to have a
+sub module called "model" and then have each model as a .py file.
+However when I attempt this I seem to have problems importing these
+files.  Need to do more googling...
 """
 # from .. import db as dbconf
 from . import dbconf as dbconf

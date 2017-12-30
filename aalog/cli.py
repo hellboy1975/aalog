@@ -20,9 +20,10 @@ def cli(debug):
     # click.echo('Debug mode is %s' % ('on' if debug else 'off'))
     pass
 
-@cli.command()
+
+@cli.command('init', short_help="Initialises aaLog")
 def init():
-    """ (sometimes) Initialises aaLog """
+    """ Initialises aaLog.  Run this the first time you attempt to use aaLog """
     click.echo("Initialising aaLog...")
 
     # TODO: Check to see if aaLog has been initialised previously
