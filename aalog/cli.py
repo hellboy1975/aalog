@@ -1,6 +1,9 @@
 """
 Contains the entry points for the aalog cli
 """
+__version__ = 0.1.1
+__author__ = 'Matt Smith'
+
 import click
 # from . import db as db # tried and failed
 # from . import dbconf as dbconf
@@ -9,6 +12,8 @@ from . import dbconf
 from . import create_tables
 
 CONTEXT_SETTINGS = dict(help_option_names=['-h', '--help'])
+
+
 
 @click.group(context_settings=CONTEXT_SETTINGS)
 @click.option('--debug/--no-debug', default=False)
