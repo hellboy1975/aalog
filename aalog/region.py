@@ -11,9 +11,9 @@ sub module called "model" and then have each model as a .py file.
 However when I attempt this I seem to have problems importing these
 files.  Need to do more googling...
 """
-# from .. import db as dbconf
-from . import dbconf as dbconf
 from peewee import *
+from . import dbconf as dbconf
+
 
 DB = SqliteDatabase(dbconf.DATABASE)
 

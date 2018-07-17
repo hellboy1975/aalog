@@ -1,11 +1,17 @@
-Development notes for myself:
+# Development guidelines and notes
 
-Now using pipenv :)
+## Development notes for myself:
 
-Todo:
+- Now using pipenv :)
+- don't build using pipenv run
+- use `python setup.py install` instead
+- then it with `aalog --help` or something similar
 
-Add user configuration
-* use yaml file
+## Todo:
+A bunch of things I need to do
+### Add user configuration
 
-Add SQL schema migration create/setup files
+- use yaml file
+
+### Add SQL schema migration create/setup files
 
