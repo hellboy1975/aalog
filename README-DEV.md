@@ -15,3 +15,8 @@ A bunch of things I need to do
 
 ### Add SQL schema migration create/setup files
 
+### Troubleshooting
+_Can't import click or peewee modules?_  Try a pip install
+Something is not right with the setup.py and so these modues don't appear to get imported
+as expected
+

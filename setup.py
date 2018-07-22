@@ -11,7 +11,9 @@ setup(
     version='0.1',
     # py_modules=['aalog'],
     # packages=['aalog'],
-    packages=find_packages(),
+    #this will attempt to autofind packages, but not convinced this works :(
+    packages=find_packages(), 
+    # packages=['aalog', 'click', 'peewee'],
     # include_package_data=True,
     description='Adventurous Activities Log',
     long_description=readme,
