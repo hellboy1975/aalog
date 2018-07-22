@@ -1,23 +1,42 @@
 """
-This package will access the yaml file used for user settings
+class to access the config files
+At the moment there are two:
+    * user.config
+    * system.config
+Config will use the standard librarly ConfigParser
+https://docs.python.org/3/library/configparser.html#module-ConfigParser
 """
-from yaml import load, dump
+import configparser
 
-DEFAULT = """
-    email: test@test.com
-    nickname: test
-    first_name: Test
-    last_name: McTestFace
-"""
+parser = configparser.ConfigParser()
 
-def check_for_config(config = USER_SETTINGS_FILE):    
-    with open(USER_SETTINGS_FILE) as stream:
-        try:
-            print(yaml.load(stream))
-        except yaml.YAMLError as exc:
-            print(exc)
+SYSTEM_CONFIG_FILE = "settings/system .ini"
 
-def load_user_config(config=USER_SETTINGS_FILE):
-    file = yaml.load(config)
+class Config:
+    """ parent class containing shared functionality """
+    
+    def load(self, file):
+        """ loads the system config file """
+        self.config = parser.read(file)
+        self.file = file
 
-check_for_config()
+    def save(self, file):
+        """ saves the requested config file """
+        config.write(file)
+
+class SystemConfig(Config):
+    """ Class to access system config values """
+
+    def __init__(self):
+        config = self.load(SYSTEM_CONFIG_FILE)
+        
+        #check that the file exists
+        self.exists = False
+        if config:
+            self.exists = True
+
+class UserConfig(Config):
+    """ Class to access user config values """
+
+    def __init__(self):
+        self.load(SYSTEM_CONFIG_FILE)
