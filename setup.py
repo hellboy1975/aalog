@@ -13,7 +13,7 @@ setup(
     # packages=['aalog'],
     #this will attempt to autofind packages, but not convinced this works :(
     packages=find_packages(), 
-    # packages=['aalog', 'click', 'peewee'],
+    # packages=['aalog', 'click', 'peewee', colorama],
     # include_package_data=True,
     description='Adventurous Activities Log',
     long_description=readme,

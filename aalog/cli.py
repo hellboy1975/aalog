@@ -5,6 +5,7 @@ __version__ = '0.1.1'
 __author__ = 'Matt Smith'
 
 import click
+
 # from . import db as db # tried and failed
 # from . import dbconf as dbconf
 # from aalog.dbconf import *
@@ -34,21 +35,29 @@ def init():
 
     # TODO: Check to see if there is a system.ini config file (there should always be!)
     # if not we can create one using the defaults
+    click.echo("System configuration: ", nl=False)
     system_config = SystemConfig()
-    if not system_config.exists:
-        click.echo("FATAL ERROR: system.ini doesn't not exist!")
+    if not system_config.config:
+        click.secho("Not found - aborting!", color="red")
         return False
 
-    click.echo("system.ini file found")
+    click.secho("OK", fg='green')
 
-    # TODO: Check to see if there is a user.ini config file
+    # Check to see if there is a user.ini config file
     # if not we can create one, prompting the user for some info
-
-    click.echo("user.ini check not implemented yet")
-
+    click.echo("User configuration: ", nl=False)
+    user_config = UserConfig(
+        system_config.parser['default']['UserSettingsFile'])
+    if not user_config.config:
+        click.secho("Not found", fg="red")
+        # TODO: user the user_config class to prompt user for details
+        return False
+    else:
+        click.secho("OK", fg='green')
+    
     # TODO: check the schema version, and see if we need to update
-    click.echo('database file: %s' % dbconf.DATABASE)
+    click.echo('Database file: ', nl=False)
 
+    # TODO: response is now a code and needs to be handled better
     response = create_tables.create_database()
-
-    click.echo(response)
+    click.secho(response)
