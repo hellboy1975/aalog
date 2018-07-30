@@ -1,23 +1,25 @@
 """
 Contains the entry points for the aalog cli
 """
-__version__ = 0.1.1
+__version__ = '0.1.1'
 __author__ = 'Matt Smith'
 
 import click
+
 # from . import db as db # tried and failed
 # from . import dbconf as dbconf
 # from aalog.dbconf import *
 from . import dbconf
 from . import create_tables
 
+from .config import SystemConfig, UserConfig
+
 CONTEXT_SETTINGS = dict(help_option_names=['-h', '--help'])
-
-
 
 @click.group(context_settings=CONTEXT_SETTINGS)
 @click.option('--debug/--no-debug', default=False)
-def cli(debug):
+@click.option('--force', '-f', multiple=True, help="Forces an overwrite if a DB already exists")
+def cli(debug, force):
     """
     The aaLog CLI interface gives you a range of commands that are
     used in interact with the aalog Database.
@@ -31,12 +33,31 @@ def init():
     """ Initialises aaLog.  Run this the first time you attempt to use aaLog """
     click.echo("Initialising aaLog...")
 
-    # TODO: Check to see if aaLog has been initialised previously
+    # TODO: Check to see if there is a system.ini config file (there should always be!)
+    # if not we can create one using the defaults
+    click.echo("System configuration: ", nl=False)
+    system_config = SystemConfig()
+    if not system_config.config:
+        click.secho("Not found - aborting!", color="red")
+        return False
 
-    # TODO: check the schema version, and see if we need to update
-    # message = db.create_database()
-    click.echo('database file: %s' % dbconf.DATABASE)
+    click.secho("OK", fg='green')
 
-    create_tables.create_database()
-
+    # Check to see if there is a user.ini config file
+    # if not we can create one, prompting the user for some info
+    click.echo("User configuration: ", nl=False)
+    user_config = UserConfig(
+        system_config.parser['default']['UserSettingsFile'])
+    if not user_config.config:
+        click.secho("Not found", fg="red")
+        # TODO: user the user_config class to prompt user for details
+        return False
+    else:
+        click.secho("OK", fg='green')
     
+    # TODO: check the schema version, and see if we need to update
+    click.echo('Database file: ', nl=False)
+
+    # TODO: response is now a code and needs to be handled better
+    response = create_tables.create_database()
+    click.secho(response)
