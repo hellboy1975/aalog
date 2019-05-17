@@ -7,6 +7,7 @@
 - use `python setup.py install` instead
 - then it with `aalog --help` or something similar
 - use aalog_test.py script to test CLI commands (useful for debugging)
+- want to update dependencies?  `pipenv update`
 
 ## Todo
 
