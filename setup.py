@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-with open('README.rst') as f:
+with open('README.md') as f:
     readme = f.read()
 
 with open('LICENSE') as f:
@@ -12,7 +12,7 @@ setup(
     # py_modules=['aalog'],
     # packages=['aalog'],
     #this will attempt to autofind packages, but not convinced this works :(
-    packages=find_packages(), 
+    packages=find_packages(),
     # packages=['aalog', 'click', 'peewee', colorama],
     # include_package_data=True,
     description='Adventurous Activities Log',
