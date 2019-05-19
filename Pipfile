@@ -18,6 +18,7 @@ pyyaml = "*"
 
 pylint = "*"
 setuptools = "*"
+"autopep8" = "*"
 
 
 [requires]
