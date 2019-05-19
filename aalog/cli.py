@@ -45,9 +45,9 @@ def init():
 
     # Check to see if there is a user.ini config file
     # if not we can create one, prompting the user for some info
-    click.echo("User configuration: ", nl=False)
     user_config = UserConfig(
         system_config.parser['default']['UserSettingsFile'])
+    click.echo("User configuration: ", nl=False)
     if not user_config.config:
         click.secho("Not found", fg="red")
         # TODO: user the user_config class to prompt user for details
@@ -56,8 +56,6 @@ def init():
         click.secho("OK", fg='green')
     
     # TODO: check the schema version, and see if we need to update
-    click.echo('Database file: ', nl=False)
+    click.echo('Initialise Database...')
 
-    # TODO: response is now a code and needs to be handled better
-    response = create_tables.create_database()
-    click.secho(response)
+    create_tables.create_database()

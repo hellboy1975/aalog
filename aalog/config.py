@@ -18,9 +18,7 @@ class Config:
 
     def load(self, file):
         """ loads the system config file """
-        # TODO: class variables aren't handled the way I expect!  Research!
         self.config = self.parser.read(file)
-        self.loaded = True
 
     def save(self, file):
         """ saves the requested config file """
@@ -28,7 +26,7 @@ class Config:
 
 class SystemConfig(Config):
     """ Class to access system config values """
-
+    
     def __init__(self):
         super().__init__()
         self.load(SYSTEM_CONFIG_FILE)
